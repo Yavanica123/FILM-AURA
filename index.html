@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FilmAura</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+      *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+        body {
+            background-color: #0d1117;
+            color: #f4f4f4;
+            width: 100vw;
+            height: 100vh;
+            overflow-x: hidden;
+        }
+        .carousel-item{
+          max-width: 99vw;
+          max-height: 600px;
+
+        }
+
+        .navbar{
+          background-color: #0d1117;
+        }
+        .navbar a{
+          color: #f0a500;
+        }
+
+        .carousel-item img {
+            object-fit: cover;
+            display: flex;
+            padding: 15px;
+            gap: 10px; 
+            width: 100vw;
+            margin: auto;
+            max-width: 99vw;
+            max-height: 600vh;
+        }
+        
+        
+        .footer {
+            background-color: #161b22;
+            color: #8b949e;
+            padding: 2.5rem 0;
+            text-align: center;
+            border-top: 1px solid #21262d;
+            width: 100%;
+        }
+        .footer a {
+            color: #f0a500;
+            text-decoration: none;
+            padding: 0 10px;
+        }
+        
+        
+        .hidden {
+            display: none;
+        }
+        
+
+        .card-group {
+            display: flex;
+            padding: 15px;
+            gap: 10px; 
+            flex-wrap: nowrap; 
+            overflow-x: scroll;
+            scrollbar-width: thin; 
+            scrollbar-color: #f0a500 #21262d;
+            width: 80vw;
+            margin: auto;
+        }
+        .card img {
+            height: 250px; 
+            object-fit: cover;
+        }
+
+
+        .card {
+              flex: 0 0 auto;
+              min-width: 250px;
+              border-radius: 8px;
+               overflow: hidden;
+               min-height: 300px;
+               max-height: 350px;
+              max-width: 200px;
+              margin: auto;
+          }
+
+      .card img {
+          width: 250px; 
+          height: 300px;
+          object-fit: cover;
+      }
+      h2{
+        color: #f0a500;
+      }
+      .main{
+        display: flex;
+        margin-bottom: 20px;
+      }
+      .paragraph{
+        width: 500px;
+        margin-right: auto;
+      }
+      .image{
+        border-radius: 50px;
+        margin: auto;
+      }
+      section{
+        display: none;
+      }
+      .show{
+        display: block;
+      }
+      button{
+        background-color: #f0a500;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 15px;
+        color: #0d1117;
+        cursor: pointer;
+        
+      }
+      .button1{
+        text-align: center;
+      }
+      .row{
+        display: flex;
+        width:100%;
+        box-sizing: border-box;
+        padding: 10px;
+      }
+      @media (max-width:800px){
+        .main{
+          justify-content: center;
+          flex-direction: column;
+        }
+        .image{
+          width: 80%;
+          padding: 20px;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+        .paragraph{
+          width: 90%;
+          font-size: medium;
+          margin-left: 10px;
+          padding: 10px;
+        }
+        .table{
+          font-size: medium;
+          margin-right: auto;
+        }
+        .img{
+          width: 100px;
+          height: 100px;
+        }
+        
+      }
+      
+      
+     
+    </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#index.html" >FilmAura</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="#index.html" >Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#latest">Latest Movies</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tollywood">Tollywood</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bollywood">Bollywood</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#actor" role="button" data-bs-toggle="dropdown" aria-expanded="false">Actors</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#hero1">Sivakarthikeyan</a></li>
+              <li><a class="dropdown-item" href="#hero2">Nani</a></li>
+            </ul>
+          <li class="nav-item"><a class="nav-link" href="#genre">Genre</a></li>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+    <div id="carouselExampleFade" class="carousel slide carousel-fade">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="images/amaran1.png" class="d-block w-100" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="images/singam1.png" class="d-block w-100" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="images/dd1.png" class="d-block w-100" alt="">
+          </div>
+          <div class="carousel-item">
+            <img src="images/fm1.png" class="d-block w-100" alt="">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+    <br><br><br><br>
+    <h2 id="latest" style="text-align: center" >Latest Movies</h2>
+    <div class="card-group">
+      
+      <div class="card">
+        <img src="images/devaracard55.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Devara</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/stree 233.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Stree 2</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/arm card11.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">ARM</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/ama66.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Amaran</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/singham again22.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Singham Again</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/vetayancard44.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"style="text-decoration: white">Vettayan</h5>
+          
+        </div>
+      </div>
+      
+    </div>
+    <br><br>
+    <h2 id="tollywood" style="text-align: center" >Tollywood</h2>
+    <div class="card-group">
+      
+      <div class="card">
+        <img src="images/rrr.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">RRR</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/pushpa.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Pushpa</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/f3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">F3</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/radheshyam.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">RadheShyam</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/akhanda.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Akhanda</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/khiladi.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"style="text-decoration: white">khiladi</h5>
+          
+        </div>
+      </div>
+      
+    </div>
+<br><br><br><br>
+    <h2 id="bollywood" style="text-align: center" >Bollywood</h2>
+    <div class="card-group">
+      
+      <div class="card">
+        <img src="images/Amar Singh Chamkila1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Amar Singh Chamkila</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/fighter2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Fighter</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/laapataaladies3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">LaapataaLadies</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/shaitaan4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Shaitaan</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/crew5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="text-decoration: white">Crew</h5>
+          
+        </div>
+      </div>
+      <div class="card">
+        <img src="images/sridevi banglow5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"style="text-decoration: white">Sridevi Bunglow</h5>
+          
+        </div>
+      </div>
+      
+    </div>
+<br><br>
+
+      <section id ="hero1" class="show" >
+        <h1 style="text-align: center;color: #f0a500;">Sivakarthikeyan</h1>
+        <br>
+        <div class="main">
+
+            <div class="image">
+              <img src="images/sivakarthikeyan.jpg" alt="" width="300px">
+            </div>
+            <div class="paragraph">
+              <p>
+                Sivakarthikeyan is a renowned Indian actor, producer, and television host, best known for his work in Tamil cinema. He began his career as a television anchor before transitioning to films. With a mix of comedy, action, and drama, Sivakarthikeyan has become one of the most sought-after stars in the industry. Apart from acting, he is also admired for his philanthropic efforts and his engaging personality, making him a favorite among fans. His versatility and charm continue to earn him a special place in Tamil cinema.
+            </p>
+            </div>
+        </div>
+          <br><br>
+          <div class="container">
+            <div class="table align-items-center " style=" background-color: #f4f4f4; ">
+              <table class="table" >
+                  <thead>
+                    <tr>
+                      <th scope="col">Movie Name</th>
+                      <th scope="col">Budget</th>
+                      <th scope="col">H/F</th>
+                      <th scope="col">Ratings</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Maaveran</th>
+                      <td>50Cr</td>
+                      <td>H</td>
+                      <td>7.4</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Don</th>
+                      <td>50Cr</td>
+                      <td>H</td>
+                      <td>7.4</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Doctor</th>
+                      <td>60Cr</td>
+                      <td>H</td>
+                      <td>8.0</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+        </div>
+          </div>
+
+
+      </section>
+      <section id ="hero2" class="" >
+        <h1 style="text-align: center;color: #f0a500;">Nani</h1>
+        <br>
+        <div class="main">
+
+            <div class="image">
+              <img src="images/nani.jpg" alt="" width="300px">
+            </div>
+            <div class="paragraph">
+              <p>
+                Nani, also known as the "Natural Star" of Telugu cinema, is a popular Indian actor and producer. He is known for his versatile roles in films, often portraying characters with emotional depth and realism. Nani's unique style and strong screen presence have earned him a loyal fan following. Nani's charm and relatability on-screen have made him one of the most beloved actors in contemporary Telugu cinema. His consistent success at the box office and his contribution to the industry have solidified his status as a respected figure in Indian cinema.
+
+            </p>
+            </div>
+        </div>
+          <br><br>
+          <div class="container">
+            <div class="table align-items-center " style=" background-color: #f4f4f4; ">
+              <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Movie Name</th>
+                      <th scope="col">Budget</th>
+                      <th scope="col">H/F</th>
+                      <th scope="col">Ratings</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">Saripodhaa Sanivaaram</th>
+                      <td>50 Cr</td>
+                      <td>H</td>
+                      <td>7.4</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Hi Nanna</th>
+                      <td>80 Cr</td>
+                      <td>H</td>
+                      <td>8.0</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">Dasara</th>
+                      <td>60 Cr</td>
+                      <td>H</td>
+                      <td>7.8</td>
+                    </tr>
+
+                  </tbody>
+                </table>
+
+        </div>
+          </div>
+
+
+      </section>
+      <div class="button1"><button onclick="herotoggle()" >Next Actor</button></div>
+      
+      <br><br><br><br>
+    <script>
+      function herotoggle(){
+        document.getElementById("hero1").classList.toggle("show");
+        document.getElementById("hero2").classList.toggle("show");
+      }
+    </script>
+    
+    <div class="container text-center" id="genre">
+      <h1 style="text-align: center;color: #f0a500;">Genre</h1>
+      <br>
+      <div class="row mb-3">
+        <div class="col-4" >
+          <img src="images/ACTION.png" alt="" class="img-fluid" style="border-radius: 10px;">
+        </div>
+        <div class="col-4" >
+          <img src="images/COMEDY.png" alt=""  class="img-fluid" style="border-radius: 10px;" >
+        </div>
+        <div class="col-4" >
+          <img src="images/DRAMA.png" alt=""  class="img-fluid"style="border-radius: 10px;">
+        </div>
+      </div>
+      <div class="row mb-3" >
+        <div class="col-6" >
+          <img src="images/HORROR.png" alt=""  class="img-fluid" style="border-radius: 10px;">
+        </div>
+        <div class="col-6">
+          <img src="images/SCI-FI.png" alt=""  class="img-fluid" style="border-radius: 10px;">
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-3" >
+          <img src="images/FANTASY.png" alt=""  class="img-fluid" style="border-radius: 10px;">
+        </div>
+        <div class="col" >
+          <img src="images/THRILLER.png" alt=""  class="img-fluid" style="border-radius: 10px;">
+        </div>
+        <div class="col-3" >
+          <img src="images/ANIMATION.png" alt=""  class="img-fluid" style="border-radius: 10px;">
+        </div>
+        <div class="col-3">
+          <img src="images/ADVENTURE.png" alt=""  class="img-fluid" style="border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+    <footer class="footer text-center">
+        <div class="container-fluid">
+            <p>&copy; 2024 FilmAura. All rights reserved.</p>
+            <nav>
+                
+                <a href="#" class="footer-link">Home</a> |
+                <a href="#latest" class="footer-link">Latest Movies</a> |
+                <a href="#tollywood" class="footer-link">Tollywood</a> |
+                <a href="#bollywood" class="footer-link">Bollywood</a> |
+                <a href="#genre" class="footer-link">Genre</a> |
+            </nav>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
